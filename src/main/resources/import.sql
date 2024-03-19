@@ -1,0 +1,2 @@
+-- INSERT INTO USERS(role ,username, password, status) VALUES ('TEACHER', 'thanos', '12345', 'APPROVED');
+-- INSERT INTO USERS(role, username, password, status) VALUES ('STUDENT','anna', '12345', 'APPROVED');

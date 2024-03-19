@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teachers Dashboard</title>
+    <link rel="icon" href="../img/favicon.ico">
+</head>
+<body>
+<h1>Teachers</h1>
+<table style="border-collapse: collapse">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Subject</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="teacher : ${teachers}">
+        <td th:text="${teacher.id}">ID</td>
+        <td th:text="${teacher.firstname}">Name</td>
+        <td th:text="${teacher.lastname}">Subject</td>
+    </tr>
+    </tbody>
+</table>
+    <a href="/logout">Logout</a>
+</body>
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../styles/login.css">
+</head>
+<body>
+<div class="outer">
+    <div class="middle" th:object="${userForm}">
+        <div class="inner rounded">
+            <form th:action="@{/teachers/register}" method="post">
+                <div class="gap-bottom">
+                    <span><b>Εγγραφή Χρήστη</b></span>
+                </div>
+                <div  class="gap-bottom">
+                    <input id="username" type="text" class="form-input account" placeholder="username" value="" name="username" th:field="*{username}" autofocus>
+                </div>
+                <div class="gap-bottom">
+                    <input id="password" type="password" class="form-input password" placeholder="Κωδικός" value="" name="password" th:field="*{password}">
+                </div>
+                <div  class="gap-bottom">
+                    <input id="firstname" type="text" class="form-input account" placeholder="firstname" value="" name="firstname" th:field="*{firstname}">
+                </div>
+                <div  class="gap-bottom">
+                    <input id="lastname" type="text" class="form-input account" placeholder="lastname" value="" name="lastname" th:field="*{lastname}">
+                </div>
+                <input type="submit" class="form-btn" value="Εγγραφή">
+            </form>
+        </div>
+        <div th:if="${#fields.hasErrors('*')}" class="alert rounded">
+            <ul>
+                <li th:each="err : ${#fields.errors('*')}" th:text="${err}">
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+body {
+	background: #8a1d1d;
+}
+
+.outer {
+	display: table;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.middle {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.inner {
+	margin-left: auto;
+	margin-right: auto;
+	background: white;
+	border: #2980b9 4px solid;
+	width: 400px;
+	height: 400px;
+	display: flex;
+	justify-content: center; /* center horizontally */
+	align-items: center; /* center vertically */
+}
+
+img.logo {
+	width: 100px;
+	height: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-bottom:20px
+}
+
+.gap-bottom {
+	margin-bottom: 20px;
+}
+
+.rounded {
+	border-radius: 25px;
+}
+
+.form-input {
+	width: 200px;
+	height: 50px;
+	background-position: left;
+	background-repeat: no-repeat;
+	background-size: 35px 35px;
+	padding-left: 45px;
+	border-radius: 18px;
+	border: 1.5px solid black;
+}
+
+.form-btn {
+	width: 200px;
+	height: 50px;
+	border-radius: 18px;
+	border: 1.5px solid black;
+	background-color: #87ceeb
+}
+
+.form-btn:active {
+	background-color: #0080c0;
+}
+
+/* Remove focus border added by browser */
+input:focus {
+	outline: none
+}
+
+input.account.form-input {
+	background-image: url('../img/account.png');
+}
+
+input.password.form-input {
+	background-image: url('../img/password.png');
+}
+
+.alert {
+	margin-top: 20px;
+	padding: 20px;
+	background-color: #ff9800;
+	width: 400px;
+	height: 70px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: center; /* center horizontally */
+	align-items: center; /* center vertically */
+}
