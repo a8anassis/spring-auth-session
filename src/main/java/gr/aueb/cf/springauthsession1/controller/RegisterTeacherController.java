@@ -34,9 +34,6 @@ public class RegisterTeacherController {
 	public String registration(@Valid @ModelAttribute("userForm") RegisterTeacherDTO teacherDTO,
 			BindingResult bindingResult) throws TeacherAlreadyExistsException {
 
-		System.out.println("Teacher dto: " + teacherDTO.getFirstname() + "" +  teacherDTO.getPassword() + ""
-				+ teacherDTO.getFirstname() + "" + teacherDTO.getLastname());
-
 		if (bindingResult.hasErrors()) {
 			return "register";
 		}

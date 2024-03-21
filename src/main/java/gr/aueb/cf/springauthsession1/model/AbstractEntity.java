@@ -22,12 +22,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public abstract class AbstractEntity implements Serializable {
     @CreatedDate
-//    @ColumnDefault("2022-03-25T12:30")
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-//    @ColumnDefault("2024-03-25T12:30")
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 

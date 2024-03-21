@@ -45,16 +45,12 @@ public class TeacherServiceImpl implements ITeacherService {
 
             Optional<User> returnedUser = userRepository.findByUsername(dto.getUsername());
                   //  .orElseThrow(() -> new TeacherAlreadyExistsException(Teacher.class, dto.getUsername()));
-            if (returnedUser.isPresent()) {
-                User user1 = returnedUser.get();
-                System.out.println("SERVICE returnedUser: " + user1.getUsername() + "" +  user1.getPassword());
-            }
 
+            // insert is not idempotent, so we have to check
+            if (returnedUser.isPresent()) throw new TeacherAlreadyExistsException(Teacher.class, dto.getUsername());
 
-            if (!returnedUser.isEmpty()) throw new TeacherAlreadyExistsException(Teacher.class, dto.getUsername());
-            teacher.addUser(user);
-            System.out.println("SERVICE Teacher dto: " + teacher);
-            teacherRepository.save(teacher);
+            teacher.addUser(user);                      // Convenient method
+            teacherRepository.save(teacher);            // CRUD Repository method
             log.info("Teacher added");
         } catch (TeacherAlreadyExistsException e) {
             log.error(e.getMessage());

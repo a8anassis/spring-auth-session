@@ -32,7 +32,6 @@ public class Teacher extends AbstractEntity {
         user.setTeacher(this);
     }
 
-
     @Override
     public String toString() {
         return "Teacher{" +

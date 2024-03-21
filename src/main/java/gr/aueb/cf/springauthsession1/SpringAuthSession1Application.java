@@ -13,5 +13,6 @@ public class SpringAuthSession1Application {
     public static void main(String[] args) {
         SpringApplication.run(SpringAuthSession1Application.class, args);
     }
-
 }
+
+

@@ -20,6 +20,4 @@ public class UserServiceImpl implements IUserService {
     public User getUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(""));
     }
-
-
 }
