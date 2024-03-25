@@ -1,5 +1,6 @@
 package gr.aueb.cf.springauthsession1.controller;
 
+import gr.aueb.cf.springauthsession1.model.User;
 import gr.aueb.cf.springauthsession1.service.IUserService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -39,8 +40,10 @@ public class LoginController {
     }
 
     @GetMapping(path = { "/" })
-    String root(Model model, Principal principal, HttpServletRequest request) throws Exception {
+    String root(Model model, Principal principal, HttpServletRequest request)
+            throws Exception {
         //return principal == null ? "login" : "redirect:/dashboard";
         return "redirect:/login";
     }
 }
+

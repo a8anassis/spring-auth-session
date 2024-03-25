@@ -35,41 +35,26 @@ public class User extends AbstractEntity implements UserDetails {
     @OneToOne(mappedBy = "user")
     private Teacher teacher;
 
-
     public User(Long id) {
         this.id = id;
         setIsActive(true);
     }
 
-    public static User NEW_USER(Role role, String password) {
-        User user = new User();
-        user.setIsActive(true);
-        user.setRole(role);
-        user.setStatus(Status.PENDING);
-        user.setPassword(password);
-        return user;
+    public static User getNewUserWithTeacherRole(String username, String password) {
+//        User user = new User();
+//        user.setIsActive(true);
+//        user.setRole(Role.TEACHER);
+//        user.setStatus(Status.APPROVED);
+//        user.setUsername(username);
+//        user.setPassword(password);
+        return new User(null, Role.TEACHER, Status.APPROVED,
+                username, password, null, null);
     }
 
-    public static User NEW_TEACHER(String username, String password) {
-        User user = new User();
-        user.setIsActive(true);
-        user.setRole(Role.TEACHER);
-        user.setStatus(Status.APPROVED);
-        user.setUsername(username);
-        user.setPassword(password);
-        return user;
+    public static User getNewUserWithStudentRole(String username, String password) {
+        return new User(null, Role.STUDENT, Status.APPROVED,
+                username, password, null, null);
     }
-
-    public static User NEW_STUDENT(String username, String password) {
-        User user = new User();
-        user.setIsActive(true);
-        user.setRole(Role.STUDENT);
-        user.setStatus(Status.APPROVED);
-        user.setUsername(username);
-        user.setPassword(password);
-        return user;
-    }
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

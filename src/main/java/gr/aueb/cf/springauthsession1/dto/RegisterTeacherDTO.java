@@ -28,5 +28,4 @@ public class RegisterTeacherDTO {
 	@NotNull
 	@Size(min = 3, max = 16, message = "Lastname must contain at least 3 characters.")
 	private String lastname;
-
 }

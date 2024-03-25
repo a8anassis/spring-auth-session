@@ -1,6 +1,5 @@
 package gr.aueb.cf.springauthsession1.authentication;
 
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +8,6 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -18,6 +16,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class CustomAuthProvider {
 
     private final UserDetailsService userDetailsService;
+
+//    Ο Lombok με @RequiredArgsConstructor δίνει το παρακάτω αυτόματα.
+//    @Autowired
+//    public CustomAuthProvider(UserDetailsService userDetailsService) {
+//        this.userDetailsService = userDetailsService;
+//    }
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -28,7 +32,8 @@ public class CustomAuthProvider {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration config)
+            throws Exception {
         return config.getAuthenticationManager();
     }
 
